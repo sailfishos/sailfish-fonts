@@ -3,7 +3,7 @@ Summary:    Sailfish platform fonts
 Version:    0.0.1
 Release:    1
 Group:      User Interface/X
-License:    OFL (Source Sans Pro), GPLv2 (WenQuanYi Zen Hei), Apache License v2.0 (Roboto)
+License:    OFL (Sail Sans Pro), GPLv2 (WenQuanYi Zen Hei), Apache License v2.0 (Roboto)
 BuildArch:  noarch
 Source0:    %{name}-%{version}.tar.gz
 Requires:   fontconfig
@@ -23,7 +23,7 @@ Obsoletes:  roboto-font
 mkdir -p %{buildroot}/etc/fonts/
 install -m 0644 -p fontconfig/local.conf %{buildroot}/etc/fonts/
 mkdir -p %{buildroot}/%{_datadir}/fonts
-for fontname in source-sans-pro wqy-zenhei roboto; do
+for fontname in sail-sans-pro wqy-zenhei roboto; do
     cp -R $fontname %{buildroot}/%{_datadir}/fonts/$fontname
 done
 
@@ -35,6 +35,6 @@ done
 %files
 %defattr(-,root,root,0755)
 /etc/fonts/local.conf
-%{_datadir}/fonts/source-sans-pro/*
+%{_datadir}/fonts/sail-sans-pro/*
 %{_datadir}/fonts/wqy-zenhei/*
 %{_datadir}/fonts/roboto/*
