@@ -2,9 +2,7 @@ TEMPLATE = aux
 
 FONTS = \
     amiri/amiri-regular.ttf \
-    roboto/*.ttf \
-    sail-sans-pro/*.ttf \
-    wqy-zenhei/wqy-zenhei.ttc
+    sail-sans-pro/SailSansPro-Light.ttf
 
 for(glob, FONTS) {
     expanded = $$files($$glob)
