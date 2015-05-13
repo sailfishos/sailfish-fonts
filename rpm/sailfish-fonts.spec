@@ -1,6 +1,6 @@
 Name:       sailfish-fonts
 Summary:    Sailfish platform fonts
-Version:    0.0.1
+Version:    0.0.5
 Release:    1
 Group:      User Interface/X
 License:    OFL (Sail Sans Pro), GPLv2 (WenQuanYi Zen Hei), Apache License v2.0 (Roboto)
