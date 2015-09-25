@@ -23,7 +23,7 @@ Obsoletes:  roboto-font
 mkdir -p %{buildroot}/etc/fonts/
 install -m 0644 -p fontconfig/local.conf %{buildroot}/etc/fonts/
 mkdir -p %{buildroot}/%{_datadir}/fonts
-for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari; do
+for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari liberation; do
     cp -R $fontname %{buildroot}/%{_datadir}/fonts/$fontname
 done
 
@@ -39,4 +39,4 @@ done
 %{_datadir}/fonts/wqy-zenhei/*
 %{_datadir}/fonts/amiri/*
 %{_datadir}/fonts/lohit-devanagari/*
-
+%{_datadir}/fonts/liberation
