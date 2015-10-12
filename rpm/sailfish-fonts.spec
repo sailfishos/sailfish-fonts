@@ -23,9 +23,21 @@ Obsoletes:  roboto-font
 mkdir -p %{buildroot}/etc/fonts/
 install -m 0644 -p fontconfig/local.conf %{buildroot}/etc/fonts/
 mkdir -p %{buildroot}/%{_datadir}/fonts
-for fontname in sail-sans-pro wqy-zenhei roboto amiri lohit-devanagari; do
+for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari liberation dejavu symbola; do
     cp -R $fontname %{buildroot}/%{_datadir}/fonts/$fontname
 done
+
+mkdir -p %{buildroot}/%{_datadir}/fontconfig/conf.avail
+mkdir -p %{buildroot}/%{_sysconfdir}/fonts/conf.d
+install -m 0644 dejavu-fontconfig/* %{buildroot}/%{_datadir}/fontconfig/conf.avail
+ln -s %{_datadir}/fontconfig/conf.avail/20-unhint-small-dejavu-serif.conf %{buildroot}/%{_sysconfdir}/fonts/conf.d
+ln -s %{_datadir}/fontconfig/conf.avail/20-unhint-small-dejavu-sans-mono.conf %{buildroot}/%{_sysconfdir}/fonts/conf.d
+ln -s %{_datadir}/fontconfig/conf.avail/20-unhint-small-dejavu-sans.conf %{buildroot}/%{_sysconfdir}/fonts/conf.d
+# override default priority so these get picked before droid fonts
+ln -s %{_datadir}/fontconfig/conf.avail/57-dejavu-sans-mono.conf %{buildroot}/%{_sysconfdir}/fonts/conf.d/54-dejavu-sans-mono.conf
+ln -s %{_datadir}/fontconfig/conf.avail/57-dejavu-sans.conf %{buildroot}/%{_sysconfdir}/fonts/conf.d/54-dejavu-sans.conf
+ln -s %{_datadir}/fontconfig/conf.avail/57-dejavu-serif.conf %{buildroot}/%{_sysconfdir}/fonts/conf.d/54-dejavu-serif.conf
+
 
 %post
 {
@@ -37,7 +49,11 @@ done
 /etc/fonts/local.conf
 %{_datadir}/fonts/sail-sans-pro/*
 %{_datadir}/fonts/wqy-zenhei/*
-%{_datadir}/fonts/roboto/*
 %{_datadir}/fonts/amiri/*
 %{_datadir}/fonts/lohit-devanagari/*
+%{_datadir}/fonts/dejavu
+%{_datadir}/fonts/liberation
+%{_datadir}/fonts/symbola/*
+%{_datadir}/fontconfig/conf.avail/*
+%{_sysconfdir}/fonts/conf.d/*
 
