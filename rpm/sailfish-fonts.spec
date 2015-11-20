@@ -23,7 +23,7 @@ Obsoletes:  roboto-font
 mkdir -p %{buildroot}/etc/fonts/
 install -m 0644 -p fontconfig/local.conf %{buildroot}/etc/fonts/
 mkdir -p %{buildroot}/%{_datadir}/fonts
-for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari liberation dejavu symbola; do
+for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari lohit-gujarati lohit-bengali lohit-tamil lohit-telugu lohit-punjabi lohit-kannada lohit-malayalam liberation dejavu symbola; do
     cp -R $fontname %{buildroot}/%{_datadir}/fonts/$fontname
 done
 
@@ -51,6 +51,13 @@ ln -s %{_datadir}/fontconfig/conf.avail/57-dejavu-serif.conf %{buildroot}/%{_sys
 %{_datadir}/fonts/wqy-zenhei/*
 %{_datadir}/fonts/amiri/*
 %{_datadir}/fonts/lohit-devanagari/*
+%{_datadir}/fonts/lohit-gujarati/*
+%{_datadir}/fonts/lohit-bengali
+%{_datadir}/fonts/lohit-tamil
+%{_datadir}/fonts/lohit-telugu
+%{_datadir}/fonts/lohit-punjabi
+%{_datadir}/fonts/lohit-kannada
+%{_datadir}/fonts/lohit-malayalam
 %{_datadir}/fonts/dejavu
 %{_datadir}/fonts/liberation
 %{_datadir}/fonts/symbola/*
