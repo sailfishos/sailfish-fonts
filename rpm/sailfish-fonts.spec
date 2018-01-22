@@ -6,6 +6,7 @@ Group:      User Interface/X
 License:    OFL (Sail Sans Pro, Lohit, Liberation, Amiri), GPLv2 (WenQuanYi Zen Hei), GPLv2+font exception(Umpush), Bitstream Vera Fonts (DejaVu), Public Domain (Symbola)
 BuildArch:  noarch
 Source0:    %{name}-%{version}.tar.gz
+Requires:   fontpackages-filesystem
 Requires:   fontconfig
 Obsoletes:  source-sans-pro-font
 Obsoletes:  wqy-zenhei-font
