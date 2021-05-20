@@ -28,6 +28,9 @@ for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari lohit-gujarati l
     cp -R $fontname %{buildroot}/%{_datadir}/fonts/$fontname
 done
 
+# Drop there here as they are covered with %license macro in the %files section
+rm %{buildroot}/%{_datadir}/fonts/*/*{.txt,COPYING,GPL,LICENSE}
+
 mkdir -p %{buildroot}/%{_datadir}/fontconfig/conf.avail
 mkdir -p %{buildroot}/%{_sysconfdir}/fonts/conf.d
 install -m 0644 dejavu-fontconfig/* %{buildroot}/%{_datadir}/fontconfig/conf.avail
@@ -48,21 +51,36 @@ ln -s %{_datadir}/fontconfig/conf.avail/57-dejavu-serif.conf %{buildroot}/%{_sys
 %files
 %defattr(-,root,root,0755)
 /etc/fonts/local.conf
-%{_datadir}/fonts/sail-sans-pro/*
-%{_datadir}/fonts/wqy-zenhei/*
-%{_datadir}/fonts/amiri/*
-%{_datadir}/fonts/lohit-devanagari/*
-%{_datadir}/fonts/lohit-gujarati/*
-%{_datadir}/fonts/lohit-bengali
-%{_datadir}/fonts/lohit-tamil
-%{_datadir}/fonts/lohit-telugu
-%{_datadir}/fonts/lohit-punjabi
-%{_datadir}/fonts/lohit-kannada
-%{_datadir}/fonts/lohit-malayalam
-%{_datadir}/fonts/dejavu
-%{_datadir}/fonts/liberation
-%{_datadir}/fonts/symbola/*
-%{_datadir}/fonts/umpush/*
-%{_datadir}/fontconfig/conf.avail/*
-%{_sysconfdir}/fonts/conf.d/*
+%license sail-sans-pro/sail-sans-pro-LICENSE.txt
+%{_datadir}/fonts/sail-sans-pro/*.ttf
+%license wqy-zenhei/wqy-zenhei-LICENSE.txt
+%{_datadir}/fonts/wqy-zenhei/*.ttc
+%license amiri/amiri-OFL.txt amiri/amiri-OFL-FAQ.txt amiri/amiri-README.txt
+%{_datadir}/fonts/amiri/*.ttf
+%license lohit-devanagari/lohit-devanagari-OFL.txt
+%{_datadir}/fonts/lohit-devanagari/*.ttf
+%license lohit-gujarati/lohit-gujarati-OFL.txt
+%{_datadir}/fonts/lohit-gujarati/*.ttf
+%license lohit-bengali/lohit-bengali-OFL.txt
+%{_datadir}/fonts/lohit-bengali/*.ttf
+%license lohit-tamil/lohit-tamil-OFL.txt
+%{_datadir}/fonts/lohit-tamil/*.ttf
+%license lohit-telugu/lohit-telugu-OFL.txt
+%{_datadir}/fonts/lohit-telugu/*.ttf
+%license lohit-punjabi/lohit-punjabi-OFL.txt
+%{_datadir}/fonts/lohit-punjabi/*.ttf
+%license lohit-kannada/lohit-kannada-OFL.txt
+%{_datadir}/fonts/lohit-kannada/*.ttf
+%license lohit-malayalam/lohit-malayalam-OFL.txt
+%{_datadir}/fonts/lohit-malayalam/*.ttf
+%license dejavu/dejavu-LICENSE
+%{_datadir}/fonts/dejavu/*.ttf
+%license liberation/liberation-LICENSE
+%{_datadir}/fonts/liberation/*.ttf
+%license symbola/symbola-LICENSE
+%{_datadir}/fonts/symbola/*.ttf
+%license umpush/umpush-GPL umpush/umpush-COPYING
+%{_datadir}/fonts/umpush/*.otf
+%{_datadir}/fontconfig/conf.avail/*.conf
+%{_sysconfdir}/fonts/conf.d/*.conf
 
