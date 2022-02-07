@@ -1,15 +1,13 @@
 Name:       sailfish-fonts
 Summary:    Sailfish platform fonts
-Version:    0.0.5
+Version:    0.3.0
 Release:    1
-License:    OFL (Sail Sans Pro, Lohit, Liberation, Amiri), GPLv2 (WenQuanYi Zen Hei), GPLv2+font exception(Umpush), Bitstream Vera Fonts (DejaVu), Public Domain (Symbola)
+License:    OFL (Sail Sans Pro, Lohit, Liberation, Amiri), GPLv2 (WenQuanYi Zen Hei), GPLv2+font exception(Umpush), Bitstream Vera Fonts (DejaVu), Public Domain (Symbola), CC-BY 4.0 (Twemoji)
 BuildArch:  noarch
 Source0:    %{name}-%{version}.tar.gz
 Requires:   fontpackages-filesystem
 Requires:   fontconfig
-Obsoletes:  source-sans-pro-font
-Obsoletes:  wqy-zenhei-font
-Obsoletes:  roboto-font
+Requires:   jolla-settings-system-about-font-licenses
 
 %description
 %{summary}.
@@ -23,7 +21,7 @@ Obsoletes:  roboto-font
 mkdir -p %{buildroot}/etc/fonts/
 install -m 0644 -p fontconfig/local.conf %{buildroot}/etc/fonts/
 mkdir -p %{buildroot}/%{_datadir}/fonts
-for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari lohit-gujarati lohit-bengali lohit-tamil lohit-telugu lohit-punjabi lohit-kannada lohit-malayalam liberation dejavu symbola umpush; do
+for fontname in sail-sans-pro wqy-zenhei amiri lohit-devanagari lohit-gujarati lohit-bengali lohit-tamil lohit-telugu lohit-punjabi lohit-kannada lohit-malayalam liberation dejavu symbola umpush twemoji; do
     cp -R $fontname %{buildroot}/%{_datadir}/fonts/$fontname
 done
 
@@ -80,6 +78,8 @@ ln -s %{_datadir}/fontconfig/conf.avail/57-dejavu-serif.conf %{buildroot}/%{_sys
 %{_datadir}/fonts/symbola/*.ttf
 %license umpush/umpush-GPL umpush/umpush-COPYING
 %{_datadir}/fonts/umpush/*.otf
+%license twemoji/twemoji-LICENSE.txt
+%{_datadir}/fonts/twemoji/*.ttf
 %{_datadir}/fontconfig/conf.avail/*.conf
 %{_sysconfdir}/fonts/conf.d/*.conf
 
