@@ -1,13 +1,12 @@
 Name:       sailfish-fonts
 Summary:    Sailfish platform fonts
-Version:    0.3.0
+Version:    0.3.1
 Release:    1
 License:    OFL (Sail Sans Pro, Lohit, Liberation, Amiri), GPLv2 (WenQuanYi Zen Hei), GPLv2+font exception(Umpush), Bitstream Vera Fonts (DejaVu), Public Domain (Symbola), CC-BY 4.0 (Twemoji)
 BuildArch:  noarch
 Source0:    %{name}-%{version}.tar.gz
 Requires:   fontpackages-filesystem
 Requires:   fontconfig
-Requires:   jolla-settings-system-about-font-licenses
 
 %description
 %{summary}.
